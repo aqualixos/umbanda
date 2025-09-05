@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Baralho Cigano - Patrícia Costa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-color: #f9f9f9;
+            --card-bg-color: #fff;
+            --border-color: #eee;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--card-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: var(--light-text-color);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-section {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .card-header h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .card-header .card-type {
+            font-weight: 600;
+            color: var(--light-text-color);
+            font-size: 0.9em;
+        }
+
+        .card-details {
+            margin-bottom: 15px;
+        }
+
+        .card-details strong {
+            color: var(--primary-color);
+        }
+
+        .card-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+        }
+
+        .card-details ul li {
+            margin-bottom: 3px;
+            font-size: 0.95em;
+        }
+
+        .card-interpretation {
+            font-style: italic;
+            color: var(--light-text-color);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .card-interpretation p {
+            margin: 0;
+        }
+
+        .section-content {
+            margin-bottom: 30px;
+        }
+
+        .section-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .section-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .note {
+            background-color: #e6f2ff;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+
+        .note strong {
+            color: var(--primary-color);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: var(--card-bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        table tr:hover {
+            background-color: #eef;
+        }
+
+        .ritual-section {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .ritual-section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .ritual-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .ritual-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .final-message {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .final-message p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .final-message .quote {
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .final-message .greeting {
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            table th, table td {
+                padding: 8px 10px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Curso de Baralho Cigano</h1>
+            <p>PATRÍCIA COSTA</p>
+        </header>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>O Cavaleiro / O Mensageiro</h3>
+                <span class="card-type">Positiva - Referente: Ação</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Mago / Número 1 – Influência / Força / Ação</li>
+                    <li>9 de copas – Prosperidade / Recompensas / Realizações</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas no plano astral / Espiritual<br>
+                <strong>Amor:</strong> Conquista (Alguém chegando ou outro)<br>
+                <strong>Orixá:</strong> Ogum ou Exu<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Esotéricos / Vidência / Militar<br>
+                <strong>CAVALEIRO:</strong> Triunfo / Ação / Coragem / Progresso / Desafios / Notícias / Superando obstáculos / Veículos (meios de transporte) / Viagens / Mudanças
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CAVALEIRO”:</strong> Esta carta é referente a grande mensagem do jogo, considerada carta trunfo, coisas que estão para chegar, pode estar relacionada a dinheiro, amor, trabalho, pessoas, coisas boas ou ruins, depende muito das cartas que se encontram a sua volta. Ela representa também coragem, ousadia, concretização, estrangeiro e materialização dos objetivos.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Trevo</h3>
+                <span class="card-type">Negativa</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Sacerdotisa / Número 2 – Paciência / Prontidão / Conhecimento Intuitivo</li>
+                    <li>6 de ouros – Benefícios materiais / Surpresa no inesperado / Fé em si mesmo e na vida</li>
+                </ul>
+                <strong>Saúde:</strong> Útero / Ovários / Sensibilidade nas pernas<br>
+                <strong>Amor:</strong> Discussões e bate-boca (passageiro – ninguém quer dar o braço a torcer)<br>
+                <strong>Orixá:</strong> Não tem orixá<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Psicólogo / Pedagogo / Trabalho com a mente<br>
+                <strong>TREVO:</strong> Fé / Intuição / Perseverança / Paciência / Obstáculo / Alerta / Sorte (Só consegue superar os obstáculos se der o primeiro passo) / Habilidades manuais / Período passageiro
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “TREVO”:</strong> Prevê um período difícil, felizmente passageiro, onde teremos que lutar muito para superar os obstáculos. Nestes momentos a ajuda do plano superior nunca falha, e, se tivermos fé e pedirmos ajuda, com certeza ela manifestar-se-á, via de regra, através da intuição. É hora de compartilhar as aflições com um amigo de sua confiança. Quando ela repete muito na consulta, algo deve ser mudado no assunto em questão.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Navio</h3>
+                <span class="card-type">Positiva - Referente: Trabalho / Saúde / Mudanças Positivas</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperatriz / Número 3 – Caminho da razão / Criatividade / Crescimento (Imperatriz)</li>
+                    <li>10 de espadas – Excesso de problemas ou preocupação / Posses / Possui decisão nas mãos</li>
+                </ul>
+                <strong>Saúde:</strong> Propenso a problemas dos rins / Pressão alta / Retenção de líquidos<br>
+                <strong>Amor:</strong> Mostrar mais afeto / Um pouco de instabilidade<br>
+                <strong>Orixá:</strong> Iemanjá<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Comércio Importação e Exportação / Turismo / Ciências exatas / Números e cálculos<br>
+                <strong>NAVIO:</strong> Novos horizontes / Metas / Negócios / Viagem / Empreendimentos / Mudança no plano material e espiritual que podem mudar toda uma vida
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “NAVIO”:</strong> É o momento de buscar novos horizontes, viajar ou mudar, de viver novas aventuras e dar um novo rumo à trajetória de nossa existência. Mudanças sempre positivas e significativas tanto no plano material como no espiritual (de casa, trabalho, ou em relação à saúde), que estão para acontecer. Viagens, passeios; para longe ou para perto depende das cartas que se encontrem à sua volta.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Casa</h3>
+                <span class="card-type">Positiva - Referente: Família</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperador – Número 4 – Caminho do poder / Disciplina / Riqueza</li>
+                    <li>Rei de copas – Paternal / Conselheiro / Inseguro / Ouvinte / Humanitário / Culto</li>
+                </ul>
+                <strong>Saúde:</strong> Estômago / Coração (pressão, podendo ser circulação)<br>
+                <strong>Amor:</strong> Relacionamento estável / Romântico / Pessoa caseira<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Câncer<br>
+                <strong>Atribuição profissional:</strong> Engenharia / Teatro / Atividade familiar / Hereditariedade<br>
+                <strong>CASA:</strong> Segurança / Equilíbrio / Proteção / Concretizações / Solidez / Família ou Lar / Auxílio e apoio dos pais ou parentes / Sucesso / Ideal
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CASA”:</strong> Representa a segurança, o equilíbrio e a proteção afetiva que necessitamos para atuar no mundo e obter sucesso. É nosso lar, os altos e baixos da vida diária. Psicologicamente, o exterior da casa é a máscara ou a aparência do ser humano – o telhado, a cabeça e o espírito, o controle da consciência; os andares inferiores marcam o nível do inconsciente e dos instintos; a cozinha, o local das transmutações psíquicas ou momento de evolução interior.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Árvore</h3>
+                <span class="card-type">Positiva - Referente: Saúde / Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Papa – Número 5 – Caminho do equilíbrio / Vitalidade / Reconhecimento</li>
+                    <li>7 de copas – Momento de sensibilidade / Encontro consigo mesmo / Superação da própria meta</li>
+                </ul>
+                <strong>Saúde:</strong> Pé / Garganta – cura própria<br>
+                <strong>Amor:</strong> Relacionamento impulsivo, mas que cresce<br>
+                <strong>Orixá:</strong> Oxossi<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Qualquer atividade<br>
+                <strong>ÁRVORE:</strong> Prosperidade geral / Crescimento / Evolução / Saúde / Vida longa / Frutos / Capacidade de materializar ideias/ Pés no chão
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “ÁRVORE”:</strong> Indica vitalidade, fertilidade e crescimento. É uma energia muito positiva que fala de estabilidade, da prosperidade, do otimismo, da alegria e da capacidade de materializar ideias, iniciar novos empreendimentos. É o aspecto cíclico da evolução cósmica – morte e regeneração – e, neste contexto, se explica a alegoria da árvore que nasce do membro viril do Adão. A árvore põe igualmente em comunicação os três níveis do Cosmo: o subterrâneo, através de suas raízes sempre a explorar as profundezas onde se encerram; a superfície da terra, através de seu tronco e galhos inferiores; e as alturas, por meio de seus galhos superiores e de seu cimo, atraído pela luz do céu. Reúnem em si os quatro elementos: a água circula com sua seiva, a terra integra-se a seu corpo através das raízes, o ar lhe nutre as folhas e dela o brota o fogo quando se esfregam seus galhos um contra o outro.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Nuvens</h3>
+                <span class="card-type">Negativa</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Amantes – Número 6 – Caminho da decisão / do Amor / do Sucesso</li>
+                    <li>Reis de paus – Espírito de liderança / Intuitivo / Guerreiro / Lutador / Força de vontade</li>
+                </ul>
+                <strong>Saúde:</strong> Sistema nervoso (emocional) / Aparelho digestivo<br>
+                <strong>Amor:</strong> Relacionamento frio duvidoso ou sem emoção – o material é mais importante<br>
+                <strong>Orixá:</strong> Oxossi<br>
+                <strong>Signo:</strong> Áries<br>
+                <strong>Atribuição profissional:</strong> Incertezas – várias funções ao mesmo tempo<br>
+                <strong>NUVENS:</strong> Dúvidas / Incertezas / Em fase de evolução / Mediunidade que aflora / Oportunidades chegando / Tempestades / O que ainda não está determinado (podendo ser pelo plano astral também) / Mudar o enfoque e/ou determinar / Não tomar nenhuma decisão no momento / Instabilidade e confusão de sentimentos (coisas passageiras)
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “NUVENS”:</strong> Marca um período de dúvidas, incertezas, instabilidade, confusão de sentimentos, falta de clareza na análise de problemas, mente tumultuada, tendência a tirar conclusões precipitadas, falta de visão das situações que o cercam, principalmente na área profissional.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Serpente</h3>
+                <span class="card-type">Negativa - Referente: Pessoas / Questões GLS</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Carro – Número 7 – Caminho da auto-confiança / Parceria / Prosperidade</li>
+                    <li>Rainha de paus – Segurança de si / Fiel / Honesta / Dedicada / Auto-expressão / Seu mundo é seu lar / Amorosa</li>
+                </ul>
+                <strong>Saúde:</strong> Coluna / Problemas de ordem sexual / Doenças que vão e vem<br>
+                <strong>Amor:</strong> Traição / Discórdia / Incompatibilidade de gênio / Rivalidade entre o casal<br>
+                <strong>Orixá:</strong> Oxumaré<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>SERPENTE:</strong> Emoções inferiores / Saber esperar a hora certa de agir / Silêncio / Sabedoria / Independente / Rivalidade / Auto-suficiência / Dinheiro / Inimigos declarados / Discórdias / Falsidade e traição / Nosso lado escuro / Homossexualismo
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “SERPENTE”:</strong> É uma energia negativa, feminina, que gera sentimentos de inveja, falsidade e traição através de brigas, discórdias e traições – é nosso lado escuro que temos de assumir e encarar ao invés de projetá-los nos outros. Pode representar também um alerta para olharmos a nossa volta e estarmos atentos às pessoas falsas e traiçoeiras que procuram nos prejudicar. Esta carta é sempre um sinal de perigo. O ser humano e a Serpente são opostos, complementares e rivais. Marca também questões homossexuais e representa o Arco-Íris. (gravidez). É o símbolo expressivo da materialidade, sexualidade, agressividade e da vida, bem como, da força, da manifestação do reino das trevas que a serpente universalmente representa.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Caixão</h3>
+                <span class="card-type">Negativa - Referente: Mudanças</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Justiça – Número 8 – Caminho da transformação, conhecimento e segurança</li>
+                    <li>9 de ouros – Segurança / Prosperidade / Sorte / Luxo / Conforto</li>
+                </ul>
+                <strong>Saúde:</strong> Indica uma limpeza (sangue, podendo ser diabetes)<br>
+                <strong>Amor:</strong> Indica relacionamento difícil podendo estar em fase de renovação ou evolução / Morte do passado<br>
+                <strong>Orixá:</strong> Obaluaiê<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Hereditariedade / Enfermagem<br>
+                <strong>CAIXÃO:</strong> Transformação / Renascer / Final de um ciclo e começo de outro / Auxílio espiritual / Concretização de planos, coisas e atitudes que precisam ser abandonadas / Velhice tranquila / Herança
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CAIXÃO”:</strong> Indica o final de um ciclo, o término de algo, uma transformação que nos impele a buscar novos caminhos e a aproveitar uma oportunidade nova que surge, um renascer. Esta energia incita a busca do desenvolvimento espiritual. A imagem do caixão remete à morte, que deve ser vista como renascimento, nunca como morte física.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Buquê</h3>
+                <span class="card-type">Positiva - Referente: Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Eremita – Número 9 – Caminho da sabedoria / Fidelidade / Vitória</li>
+                    <li>Rainha de espadas – Auto-suficiência / Solidão voluntária / Presença de espírito / Novo / Tecnologia / Severidade</li>
+                </ul>
+                <strong>Saúde:</strong> Reumatismo / Circulação / Fígado<br>
+                <strong>Amor:</strong> Momento de felicidade – ameniza o ruim – podendo ser amor platônico<br>
+                <strong>Orixá:</strong> Nanã<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Curiosidades / Mestre / Serviço público<br>
+                <strong>BUQUÊ:</strong> Início de romance / Oportunidades / Individualidade / Presente / Ofertas / Felicidade / Amor universal / Altruísmo / Trocas sinceras / Coisas que chegam ao seu devido tempo / Uma dádiva na vida da pessoa / Expiração / Alma / Generosidade / Fraternidade
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “BUQUÊ”:</strong> Representa o amor universal, o entendimento entre as pessoas, o altruísmo, a generosidade e a fraternidade. Indica amizades leais, as trocas sinceras e as muitas oportunidades que nos apresentam se estivermos atentos e prontos para aceitá-las. Simbolicamente o ramalhete de flores é a imagem da perfeição espiritual. Todo arranjo floral é efetuado conforme um ternário, onde estão representados, segundo o posicionamento de seus componentes, o Céu (ramo ou flor mais elevado do conjunto), o Ser Humano (ramos ou flores da posição média) e a Terra (posição inferior). Assim os ramalhetes, além de exprimir a ordem cósmica, são veículos sutis utilizados para transmitir nossos sentimentos, sejam eles alegres ou tristes.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Foice</h3>
+                <span class="card-type">Neutra - Referente: corte, interrupção</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Mago – Número 1+0=1 – Caminho do renascimento / Força</li>
+                    <li>Valete de ouros – Eficiência / Crítica / Análise / Esforço / Praticidade / Seriedade</li>
+                </ul>
+                <strong>Saúde:</strong> Desgaste físico / Dores no corpo e cirurgia<br>
+                <strong>Amor:</strong> Corte – separações ou decisões<br>
+                <strong>Orixá:</strong> Obaluaiê<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Medicina – área da saúde<br>
+                <strong>FOICE:</strong> Corte brusco / Coisas radicais / Colheita / Receber os frutos do seu esforço / Decisões / Situação difícil e delicada / Reavaliação ou reformulação / Rompimento com dor / Fim de sofrimento / Crescimento
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “FOICE”:</strong> Anuncia transformação, em geral precedida de uma situação difícil e delicada, onde um corte brusco, um rompimento ou uma perda se faz necessária para que haja um crescimento – as perdas de status e as separações afetivas são em geral dolorosas; somos forçados a abrir mão de algo muito importante para nós. Indica o fim de um sofrimento, um prejuízo ou o indício de que algo em nossa vida está passando por um processo de transformação, reavaliação ou reformulação, necessária à nossa evolução pessoal. A foice, em virtude de seu formato, é frequentemente relacionada com a lua crescente – em geral, as armas são associadas ao simbolismo lunar, ao feminino e à fecundidade. Simboliza o ciclo das searas que se renovam; a morte e a esperança dos renascimentos.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Chicote</h3>
+                <span class="card-type">Neutra - Referente: Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Sacerdotisa – Número 1+1=2 – Caminho da paciência / Prontidão / Conhecimento intuitivo</li>
+                    <li>Valete de paus – Aventureiro / Buscador / Otimismo / Sabe apreciar os dois lados de uma questão</li>
+                </ul>
+                <strong>Saúde:</strong> Desgaste Dores no corpo / Problemas de ordem sexual / Obesidade / Amor / Indica uma relação onde o sexo é prioridade, com tendências ao ciúme e egoísmo / Usa a força física (masoquismo) / Sofrimentos<br>
+                <strong>Orixá:</strong> Caboclos boiadeiros / Pretos velhos<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Oficial de justiça (coisas jurídicas) / Líder religioso / Ensinamentos<br>
+                <strong>CHICOTE:</strong> Energia criadora / Hora de tomar atitudes a seu favor / Magia / Mestre interno ou anjo da guarda / Ser induzido ao caminho espiritual / Brigas / Disputa / Castigo / Contrariedade / Força e garra / Justiça com as próprias mãos / Sofrimentos
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CHICOTE”:</strong> Prenuncia disputas e desarmonia no relacionamento familiar, brigas com amigos ou sócios, resultando assim de um desequilíbrio espiritual. Assim, os chicotes, representam a proteção e a ajuda do plano espiritual. O chicote é o símbolo do poder judiciário e de seu direito de manter a ordem e infligir castigos.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Pássaros - Corujas</h3>
+                <span class="card-type">Positiva (neutraliza a carta da cobra) - Referente: Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperatriz – Número 12 – 1+2=3 – Caminho da razão / Criatividade / Crescimento</li>
+                    <li>7 de ouros – Proposta / Crescimento / Não tomar atitude boba / Medo de arriscar</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas psicossomáticos / Rins<br>
+                <strong>Amor:</strong> Bons momentos (carinhos) / Liberdade / Sonhos felizes<br>
+                <strong>Orixá:</strong> As feiticeiras / Oxum<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Professor – área de ensino<br>
+                <strong>PÁSSAROS / CORUJAS:</strong> Namoro / Liberdade / Sonhos / Lucros / Cooperação / Encontro casual / Desgaste / Futilidade / Conveniência / Tagarelice / Sabedoria / Alegrias / Momentos de reflexão / Clareza de visão / Coisas passageiras
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “PÁSSAROS / CORUJAS”:</strong> Indicam a capacidade reflexiva e a racionalização que diferenciam o ser humano dos animais. A coruja simboliza, em seu aspecto positivo, a sabedoria, a inteligência, a clareza de visão e a capacidade de pressagiar eventos. Os pássaros representam a felicidade, renascimento, namoro, união.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Criança</h3>
+                <span class="card-type">Positiva - Referente: Amor / Amizade / Pessoa Jovem / Intuição</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperador – Número 13 – 1+3=4 – Caminho do poder / Disciplina / Riqueza</li>
+                    <li>Valete de espadas – Comunicação / Intelecto / Briga / Audácia / Jovialidade / Instabilidade</li>
+                </ul>
+                <strong>Saúde:</strong> Tomar cuidado com abusos e excessos com a saúde / Gravidez<br>
+                <strong>Amor:</strong> Exercite sua criatividade / Novo amor / Pedindo maturidade / Ingenuidade (pureza de sentimentos)<br>
+                <strong>Orixá:</strong> Erê - Crianças / Logum - Edé<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Coisas inovadoras / Criatividade<br>
+                <strong>CRIANÇA:</strong> Inocência / Criatividade / Vontade de aprender / Espontânea / Retardamento Mental / Insensibilidade / Crueldade / Tranquila / Concentrada / Ânimo / Auto-confiança / Esperança / Sinceridade
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CRIANÇA”:</strong> Fala do início, da inocência, otimismo e da alegria de viver, bem como da irresponsabilidade, ausência de medos e preconceitos, fragilidade e imaturidade. A criança é espontânea, tranquila, concentrada, sem intenção ou pensamento dissimulado, estando sempre aberta ao mundo, apta a vivenciar cada nova experiência sem barreiras ou prevenções, fascinada e disposta a aprender tudo o que lhe é ensinado. Não podemos esquecer que essa energia tem livre trânsito no mundo espiritual: “Se não mudardes e não vos fizerdes como crianças, de modo algum entrareis no reino de Deus”. Somente a condição original – indefinida, fresca e vital, mas vulnerável e insegura –, simbolizada pela criança, está aberta ao desenvolvimento.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Raposa</h3>
+                <span class="card-type">Neutra - Referente: Pessoa Homem ou Mulher</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Papa – Número 14 – 1+4=5 – Caminho do equilíbrio / Vitalidade / Reconhecimento</li>
+                    <li>9 de paus – Recursos ocultos / Mudanças necessárias</li>
+                </ul>
+                <strong>Saúde:</strong> Indica depressão / Glândulas / Tireoide<br>
+                <strong>Amor:</strong> Indica frustração / Sutileza / Estratégia<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>RAPOSA:</strong> Esperteza / Estratégia / Pouco esforço físico / Algo premeditado / Desafios / Rapidez / Flexibilidade / Armadilha / Audaciosa / Medrosa / Enganos / Cautela
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “RAPOSA”:</strong> Fala da sagacidade, esperteza, rapidez e flexibilidade de nossas ações, muitas vezes fundamentais à nossa sobrevivência (muita cautela). Provavelmente estaremos sendo vítimas de pessoas inescrupulosas e oportunistas que poderão acarretar-nos sérios prejuízos morais ou financeiros. Falsa proposta e galanteios ardilosos poderão resultar no envolvimento em situações complicadas para nós. Simbolicamente, a raposa encarna as contradições inerentes à natureza humana – ativa e inventiva, mas ao mesmo tempo destruidora; independente, audaciosa e, ao mesmo tempo, medrosa. Também é atribuída a grande longevidade.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Urso</h3>
+                <span class="card-type">Negativa - Referente: Pessoa Homem ou Mulher</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Enamorados – Número 15 – 1+5=6 – Caminho da decisão / Amor / Sucesso</li>
+                    <li>10 de paus – Tomar uma atitude / Excesso de preocupações / Responsabilidades sobrecarregadas / Medos / Ansiedades</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas de ordem astral / Obesidade<br>
+                <strong>Amor:</strong> Paixões violentas e oportunistas / Desafeto<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir – podendo ser vidente ou interesses alheios<br>
+                <strong>URSO:</strong> Inveja / Ciúme / Perseverança / Inimigo oculto / Poder / Consciência dos próprios limites / Angústia / Despeito / Proteção / Segurança / Segurança e sabedoria interior
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “URSO”:</strong> É a energia negativa, masculina, associada à busca do poder, gera inveja, ciúme, despeito e, geralmente, é por nós manifestada na área profissional. Pode indicar ainda que estamos sendo vítimas de cargas negativas ou de pessoas próximas que falsamente se comportam como amigos, quando em verdade estão apenas se aproveitando da situação para obter alguma vantagem pessoal. Em seu aspecto positivo é considerado, devido à sua aparência amigável e submissa, o símbolo da proteção e segurança, evocando pessoas maternais que cruzam o nosso caminho sempre prontas a ajudar e proteger.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Estrela</h3>
+                <span class="card-type">Positiva - Referente: Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Carro – Número 16 – 1+6=7 – Caminho da Auto-Confiança / Parceria / Prosperidade</li>
+                    <li>6 de copas – Equilíbrio emocional / Direcionamento de objetos / Amadurecimento / Rompimento com o passado / Confiança em si</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas alérgicos / Renite<br>
+                <strong>Amor:</strong> Indica um relacionamento abençoado e com simplicidade – podendo ser alma gêmea<br>
+                <strong>Orixá:</strong> Mentor – linha Cigana<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir – podendo ser vidente ou interesses alheios<br>
+                <strong>ESTRELA:</strong> Autoestima / Sorte / Inspiração / êxito / Mentor ou guia espiritual / Proteção e intuição / Conscientização / Reciclagem / Artístico / Místico
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “ESTRELA”:</strong> Inspira cuidado com a nossa própria imagem e alerta para conservar nosso brilho pessoal em todas as situações. Traz boa sorte e êxito – é hora de confiarmos em nossa boa estrela. São também avisos: quando atingimos os píncaros da fama, devemos estar atentos para não nos deixarmos seduzir pelo “glamour” do estrelato; o deslumbramento é fato comum e marca o início da queda. No Velho Testamento as estrelas obedecem e anunciam a Vontade de Deus.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Cegonha</h3>
+                <span class="card-type">Neutra - Referente: Amizade / Gravidez / Mulher</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Justiça – Número 17 – 1+7=8 – Caminho da transformação / Conhecimento / Segurança</li>
+                    <li>Rainha de copas – Mulher apaixonada (sufoca) / Gosta de trabalhar fora / Sensual</li>
+                </ul>
+                <strong>Saúde:</strong> Gripes / Resfriados / Respiração / Podendo ser ovários<br>
+                <strong>Amor:</strong> Cuidado para não cair na rotina, procurar renovar – faça com que aconteça<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Escorpião<br>
+                <strong>Atribuição profissional:</strong> Trabalhos paralelos / Necessita de outra carta para definir<br>
+                <strong>CEGONHA:</strong> Novidades / Renovação / Mudanças / Amantes / Aprender a organizar as energias / Sedução / Imprevistos / Viver o momento presente / Atrasos / Gravidez / Fofoca
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CEGONHA”:</strong> Prenuncia novidades, mudanças, viagens aéreas, surpresas, imprevistos ou até situações inesperadas em nossas vidas, como a gravidez. Anunciam o novo que está para acontecer, seja bom ou ruim, quebrando a rotina, incentivando-nos a arriscar e a ousar. Reforçam o conceito do agir e aproveitar as oportunidades do “agora” de forma inteligente, sem pressa ou ansiedade.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Cachorro / Cão</h3>
+                <span class="card-type">Positiva - Referente: Amizade / Pessoa Homem ou Mulher</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Eremita – Número 18 – 1+8=9 – Caminho da sabedoria / Fidelidade / Vitória</li>
+                    <li>10 de copas – Felicidade / Paz / Vida espiritual completa (ligado com o todo) / Harmonia familiar</li>
+                </ul>
+                <strong>Saúde:</strong> Chekup geral<br>
+                <strong>Amor:</strong> Fidelidade / Compreensão / Ótimo / Pessoa que se interessará em você / Honestidade / Confiança<br>
+                <strong>Orixá:</strong> Omulu / Ogum<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Direito / Política<br>
+                <strong>CACHORRO / CÃO:</strong> Proteção (podendo ser espiritual) / Fidelidade / Compreensão / Acomodação / Ser fiel aos seus propósitos / Ter a guarda de algo ou alguém / Ser justo / Vigilante / Alerta
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CACHORRO / CÃO”:</strong> Representa a fidelidade, amizade, vida social. Indica o apoio de amigos legais que inspiram confiança e estarão sempre pronto a auxiliar sem pedir nada em troca. Em termos afetivos prenuncia fidelidade e compreensão. É a carta da justiça. Pode ser também um protetor espiritual. Às vezes pode indicar pessoa acomodada.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Torre</h3>
+                <span class="card-type">Positiva – Trunfo (revelação de segredos) - Referente: Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Mago – Número 19 – 1+9=10 – 1+0=0 – Caminho do renascimento / Força</li>
+                    <li>6 de espadas – Meditação / Adaptação / Recolhimento / Silêncio / Melancolia / Luto / Dor</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas nos ossos / Coluna / Dores de cabeça / (símbolo de hospital)<br>
+                <strong>Amor:</strong> Relacionamento profundo onde a inteligência é muito importante / Veja seus valores e desejos<br>
+                <strong>Orixá:</strong> Oiá / Inhansã<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Magistrado / Pedagogia / Magia / Antiguidade / História / Línguas<br>
+                <strong>TORRE:</strong> Mundo interior / Revelação / Orgulho / Perdão / Missão / Elevação espiritual / Passado / Vigilância / Ascensão / Detenção / Prisão / Complexos / Carma / Dificuldade de comunicação
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “TORRE”:</strong> Incita para a necessidade de entrarmos em contato com o nosso mundo interior, nos posicionarmos e promovermos a elevação espiritual. É o isolamento saudável que permite a reciclagem e a busca de respostas no mais íntimo de nosso ser. Soltar o passado – perdão. Representa o que somos por dentro, a essência, e não a imagem que passamos ao mundo material. Quando sai com cartas negativas pode representar detenção, prisão. Pode mostrar pessoas sensitivas ou simbolizar o carma do consulente. Pode indicar um isolamento da parte da consulente – intimidade.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Jardim</h3>
+                <span class="card-type">Neutra - Referente: Saúde / Amor / Família</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Sacerdotisa – Número 20 – 2+0=2 – Caminho da paciência / Prontidão / Conhecimento intuitivo</li>
+                    <li>8 de espadas – Confiar em si / Assustado / Submissão / Vulnerabilidade / Desinformação</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas de pele / Apatia<br>
+                <strong>Amor:</strong> Relacionamento cheio de prazer e mútuo (recíproco)<br>
+                <strong>Orixá:</strong> Ossanhê (Ossain)<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Medicina alternativa / Acupuntura / Homeopatia / Fitoterapia (terapias alternativas) / Podendo ser atividades com a família / Literatura<br>
+                <strong>JARDIM:</strong> Plantar e colher / Prazer / Cura física e/ou espiritual / Ambiente familiar (parentes) / Ampliar horizontes e o lugar onde reinamos/ Renovação / Drogas / Medicinas / Ervas
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “JARDIM”:</strong> Representa o ambiente que nos cerca, os limites conhecidos. É o lugar onde reinamos, nosso domínio formado pelas coisas e pessoas que nos cercam, e tudo aquilo que depende única e exclusivamente de nosso esforço e escolha (lei da ação e reação). Aquilo que semeamos em nosso jardim é o que será colhido depois. Simbolicamente representa o Paraíso, um lugar encantado onde reina a paz e a harmonia.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Montanha</h3>
+                <span class="card-type">Positiva - Referente: Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperatriz – Número 21 – 2+1=3 – Caminho da razão / Criatividade / Crescimento</li>
+                    <li>8 de paus – Período de ação / Conhecimento / Aprendizado / Psicologia / Religião / Misticismo / Segurança / Confiança</li>
+                </ul>
+                <strong>Saúde:</strong> Cuidados com o aparelho respiratório<br>
+                <strong>Amor:</strong> Indica relacionamento com equilíbrio – podendo haver romantismo<br>
+                <strong>Orixá:</strong> Xangô<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Advogado / Contabilidade / Procuradores e magistrados / Padre / Misticismo / Psicologia<br>
+                <strong>MONTANHA:</strong> Equilíbrio / Firmeza / Frieza / Empreendimentos / Disputas bem-sucedidas / Resistência / Perseverança / Justiça
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “MONTANHA”:</strong> Fala das grandes dificuldades e desafios, dos inimigos em potencial, sempre prontos a desafiar e que precisam ser combatidos com equilíbrio, firmeza, perseverança, e justiça, independentemente de qualquer interesse pessoal. Estar atento aos documentos, procurações ou processos importantes. Seu topo gelado alerta para o perigo da cristalização ou falta de flexibilidade. A montanha é a um só tempo, o símbolo de transcendência e de manifestação – é o encontro do céu com a terra, morada dos deuses e objetivo da ascensão humana. Ele é o lugar dos deuses e sua ascensão é figurada como o meio de entrar em reação com a Divindade ou de retorno ao Princípio.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Caminho</h3>
+                <span class="card-type">Neutra</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperador – Número 22 – 2+2=4 – Caminho do poder / Disciplina / Riqueza</li>
+                    <li>Rainha de ouros – Prazer / Abundância / Organização / Renovação / Florescimento</li>
+                </ul>
+                <strong>Saúde:</strong> Pernas / Pés<br>
+                <strong>Amor:</strong> Relacionamento construtivo – saiba escolher o melhor para você<br>
+                <strong>Orixá:</strong> Ogum<br>
+                <strong>Signo:</strong> Touro<br>
+                <strong>Atribuição profissional:</strong> Representa os militares em geral / Vendedor<br>
+                <strong>CAMINHOS:</strong> Livre arbítrio / Precipitado / Briguento / Escolha / Vida longa / Momento presente / Saída para tudo na vida / Força de vontade
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CAMINHOS”:</strong> Representa o Livre Arbítrio que, se por um lado nos dá a certeza de que há sempre uma saída para tudo na vida, por outro coloca em nossas mãos a decisão e a responsabilidade da escolha de continuarmos na rota conhecida ou de nos aventurarmos por um novo atalho. Revela força de vontade e persistência diante dos obstáculos, indica a possibilidade de mudanças, de exploração de novos territórios – prenuncia um momento propício para diversificar e descobrir coisas novas. É a carta da coragem e mostra pessoa trabalhadora, guerreira, embora precipitada. É a carta do briguento, do encrenqueiro.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Ratos</h3>
+                <span class="card-type">Negativa - Referente: Pessoa Homem ou Mulher</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Papa – Número 23 – 2+3=5 – Caminho do equilíbrio / Espiritualidade / Vitalidade / Reconhecimento</li>
+                    <li>7 de paus – Teste de Auto confiança / Teste de fé / Caráter forte e integro / Progresso / Sorte / Desafios</li>
+                </ul>
+                <strong>Saúde:</strong> Indisposição / Stress / Câncer / Perda de energia sexual<br>
+                <strong>Amor:</strong> Indica relacionamento cansativo e desgastado / Decepções / Não esperar muito / Dificuldade de expressar o amor<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir / Qualquer tipo de coisas clandestinas ou pessoas que vive enganando os outros (bico)<br>
+                <strong>RATOS:</strong> Culpa / Desgaste ou perdas no aspecto físico / Decepções / Prepotente / Dificuldade de expressar o amor (sentimentos) / Vampirismo espiritual / Coisas clandestinas / Desonestidade / Jogos de azar
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “RATOS”:</strong> Indica desgaste de energia tanto no aspecto físico, afetando a saúde, como no campo material e financeiro, onde perdas ou roubo podem acontecer. Trata-se de um aviso para estarmos mais alertas e cuidarmos melhor de nossa saúde e bens. Nos amores ou negócios devemos estar atentos para afastar-nos de pessoas oportunistas. Dificuldade de expressar o amor e os sentimentos, principalmente no âmbito familiar. Considerado como imagem da avareza, cupidez atividade noturna e clandestina. Prometem roubo, perdas de documentos, cheques sem fundos e desvio de papéis. Não compre coisas que não conhece. Desonestidade. É a carta da culpa. Esta carta também mostra pessoa prepotente.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Coração</h3>
+                <span class="card-type">Positiva - Referente: Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Enamorados – Número 24 – 2+4=6 – Caminho da decisão/ Amor / Sucesso</li>
+                    <li>Valete de copas – Sedutor / Romântico / Místico / Idealista / Cruel / Seduz e foge</li>
+                </ul>
+                <strong>Saúde:</strong> Depressão / Mágoa<br>
+                <strong>Amor:</strong> Dedicação / Incondicional / Bom<br>
+                <strong>Orixá:</strong> Oxalá (Oxaguiã) / Oxum<br>
+                <strong>Signo:</strong> Peixes<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>CORAÇÃO:</strong> Emoção / Usar de sinceridade nos sentimentos / Crescimento vindo através do amor / Paixão / Nervoso / Ódio / Dedicação a pessoas ou a um objetivo (trabalho ou estudo) / Carinho
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CORAÇÃO”:</strong> Fala da emoção, entrega, paixão, seja por uma pessoa ou por uma causa. É o nosso lado sensível, nervoso, nossa capacidade de expressar sentimentos. Indica aquelas situações passionais que bloqueiam nossa razão, fazendo com que tomemos atitudes loucas, impensadas e intempestivas. Seu oposto, o ódio, é sua manifestação negativa. Pede para o consulente usar de sinceridade nos sentimentos. Também pode indicar problemas emocionais.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Anel</h3>
+                <span class="card-type">Positiva - Referente: Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Carro – Número 25 – 2+5=7 – Caminho da autoconfiança / Parceria / Prosperidade</li>
+                    <li>Ás de paus – Empolgação / Inovação / Criativo</li>
+                </ul>
+                <strong>Saúde:</strong> Problemas de pressão<br>
+                <strong>Amor:</strong> Relacionamento duradouro / Casamento / Pessoas com o mesmo objetivo<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita Negócios próprios / Podendo ser imobiliária<br>
+                <strong>ANEL:</strong> União / Parcerias / Isolamento / Associação comercial
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “ANEL”:</strong> Fala da possibilidade de nossa união ou associação com o outro, em todos os níveis: afetivo, profissional, familiar ou espiritual; da cooperação e apoio de pessoas ou de ideias que se unem para atingir objetivos que não poderiam ser alcançados de maneira isolada. Pode indicar noivados, casamentos, associação comercial ou até a organização de equipes de trabalho ou estudos. A ambivalência desse símbolo provém do fato de que o anel “une e isola”, fazendo lembrar por isso a relação dialética de “senhor escravo”.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Livro</h3>
+                <span class="card-type">Positiva (revelação de segredos) - Referente: Trabalho</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Justiça – Número 26 – 2+6=8 – Caminho da transformação / Conhecimento / Segurança</li>
+                    <li>10 de ouros – Boa reputação / Patrimônio / Segurança familiar / Tradição / Sucesso</li>
+                </ul>
+                <strong>Saúde:</strong> Olhos / Cabeça<br>
+                <strong>Amor:</strong> Indica necessidade de conhecer mais o parceiro / Podendo ser evolução na união (solidez)<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir / Está ligada aos estudos em geral / Escritor<br>
+                <strong>LIVRO:</strong> Esforço intelectual / Investimento pessoal / trabalho produtivo / Revelações / Segredos / Reflexão / Trabalho / Estudos
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “LIVROS”:</strong> Enfatiza a necessidade de aprimoramento intelectual para que o crescimento e o sucesso profissional se materializem. Prenuncia a possibilidade de ampliar a consciência pessoal, desbravar novos horizontes, desvendar mistérios e de adquirir sabedoria. Simboliza a soma dos conhecimentos obtida numa existência que, quando aplicada de forma eficiente e eficaz, pode gerar sucesso, respeito e prosperidade. Alegoricamente o livro é, sobretudo, o símbolo do Universo.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Carta</h3>
+                <span class="card-type">Neutra</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Eremita – Número 27 – 2+7=9 – Caminho da sabedoria / Fidelidade / Vitória</li>
+                    <li>7 de espadas – Diplomacia / Estratégias / Planejamento / Riscos elevados</li>
+                </ul>
+                <strong>Saúde:</strong> Ansiedade / Garganta<br>
+                <strong>Amor:</strong> Falar o que sente / Partilhar os sentimentos / Declarações<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Escritores e de todos os que lidam com a informação e a comunicação (artistas, escritores, repórter e radialistas; nos dias de hoje com a evolução podendo ser até a informática)<br>
+                <strong>CARTA:</strong> Mensagem / Pendências / Sucesso com a justiça / Convites / Momento presente / Palavras amigas / Alertas / Prudência / Cautela
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CARTA”:</strong> Prenuncia a chegada de uma mensagem ou é o indício de que algo será revelado – mesmo sendo algo ruim, será importante e contribuirá para nosso processo evolutivo. Indica que as pendências ou assuntos serão resolvidos de um modo diverso ao que imaginávamos. Está ligada ao momento presente do indivíduo, não a seu futuro, e pode estar relacionada as palavras amigas que podemos dar ou receber. É também um alerta: cuidado, fique atento, cuidado com o que fala. Representa todo o tipo de comunicação: telefonema, telegrama, carta, e-mail.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Homem</h3>
+                <span class="card-type">Neutra</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Mago – Número 28 – 2+8=10 - 1+0=1 – Caminho do renascimento / Força</li>
+                    <li>Ás de copas – Explosão de sentimentos / Amor / Beleza / Ilusões / Paixões / Infidelidade / Vingativa</li>
+                </ul>
+                <strong>Saúde:</strong> Indica tensão<br>
+                <strong>Amor:</strong> Indica confiança / Saber usar a razão<br>
+                <strong>Orixá:</strong> Pode ser Exú<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>HOMEM:</strong> Começo de algo (início) / Habilidade / Machismo / Coragem / Princípio masculino / Agir – verbo e sentido
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “HOMEM”:</strong> Representa o princípio masculino, ativo, positivo, Yang, racional. Representará o consulente do sexo masculino. Se o consulente for uma mulher, esta carta representa um homem influente em sua vida – pai, marido, amante ou chefe. Psicologicamente está associado ao princípio, que se caracteriza pelo diferenciar e ordenar, representam a vontade, o agir, verbo e sentido; é um princípio eminentemente solar.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Mulher / Dama</h3>
+                <span class="card-type">Neutra</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Sacerdotisa – Número 29 – 2+9=11 - 1+1=2 – Caminho da paciência / Prontidão / Conhecimento intuitivo</li>
+                    <li>Ás de espadas – Força mental / Força do intelecto / Conflito que deverá ser encarado</li>
+                </ul>
+                <strong>Saúde:</strong> Indica tensão<br>
+                <strong>Amor:</strong> Indica confiança / Saber usar a sensibilidade<br>
+                <strong>Orixá:</strong> Cigana / Pomba Gira<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>MULHER / DAMA:</strong> Começo de algo (início) / Habilidade verbal / Discernimento / Frustração / Auto repressão / Princípio feminino / Passivo / Emocional
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “MULHER / DAMA”:</strong> Representará o consulente de sexo feminino. Se o consulente for homem, esta carta representa uma mulher influente em sua vida: mãe, esposa, amante ou chefe.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Lírios</h3>
+                <span class="card-type">Positiva - Referente: Amor</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperatriz – Número 30 – 3+0=3 – Caminho da razão / Criatividade / Crescimento</li>
+                    <li>Reis de espadas – Racional / Lógico / Duro / Sabe se comunicar / Mentiroso de talento</li>
+                </ul>
+                <strong>Saúde:</strong> Partes ginecológicas / Urológicas / Intestinais<br>
+                <strong>Amor:</strong> Sentimento de pureza e verdadeiro / Verdade<br>
+                <strong>Orixá:</strong> Oxalá (Oxalufã)<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Administração / Gerente / Pessoa que tem cargo ou tem alguma coisa própria<br>
+                <strong>LÍRIOS:</strong> Paz / Tranquilidade / Namoro sério / Fidelidade / Vidência / Bom gosto / Vaidade / Preguiça / Passividade / Verdade / Providência divina / Pureza / Harmonia / Sensibilidade / Solidariedade / Dignidade / Ser / Moral / Virtude / Casamento / Saber tirar o melhor no pior
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “LÍRIOS”:</strong> Anunciam um período feliz, o início de um novo ciclo, uma nova perspectiva de vida ou fim das crises ou desafios. Esta é a sua abordagem simbólica mais comum: sua brancura nos remete aos conceitos de pureza, inocência e virgindade. O lírio simboliza o abandono místico à vontade de Deus e à Providência, que cuida das necessidades de seus eleitos: “Observai os lírios do campo, como eles crescem; não trabalham, nem fiam, eu vos digo que o próprio Salomão no auge de sua glória não se vestiu como um deles”. Indica assuntos sérios. É também a carta do casamento, namoro, sério e fidelidade.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Sol</h3>
+                <span class="card-type">Positiva (representa filhos ou gravidez) - Referente: Saúde / Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Imperador – Número 31 – 3+1=4 – Caminho do poder / Disciplina / Riqueza</li>
+                    <li>Ás de ouros – Potencial para riqueza / Lucro</li>
+                </ul>
+                <strong>Saúde:</strong> Sistema imunológico / Olhos<br>
+                <strong>Amor:</strong> Sedução / Necessidade de amar / Podendo ser tudo e todos<br>
+                <strong>Orixá:</strong> Oxalá<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Qualquer atividade / Alimentação / Corpo / Principalmente qualquer tipo de esportes<br>
+                <strong>SOL:</strong> Sabedoria / Experiência / Elevação espiritual / Autoridade / Respeito / Orgulho / Arrogância / Sangramentos / Energia positiva / Vitalidade / Criatividade / Força / Recuperação de uma situação difícil / Luz / Calor / Futuro brilhante
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “SOL”:</strong> Prenuncia uma fase de crescimento, de auto afirmação, prosperidade e sucesso. O simbolismo do Sol é tão diversificado quanto é rica de contradições a realidade solar: é considerado um princípio fecundo, mas também destruidor – a seca que pode queimar e matar. É a origem de tudo o que existe, o princípio e o fim de toda manifestação – se não é o próprio Deus, é, para muitos povos, uma manifestação da divindade: filho de Deus, olho de Deus… É a carta dos atletas, poder mental, raciocínio e lógica – recuperação de uma situação difícil.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Lua</h3>
+                <span class="card-type">Positiva - Referente: Amor / Espiritualidade</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Papa – Número 32 – 3+2=5 – Caminho do equilíbrio / Espiritualidade / Vitalidade / Reconhecimento</li>
+                    <li>8 copas – Sacrifício / Renúncia / Abandono / Demissão / Perda voluntária</li>
+                </ul>
+                <strong>Saúde:</strong> Órgão sexual feminino / Útero / Ovário / Cabeça<br>
+                <strong>Amor:</strong> Encantamento / Fascínio / Criatividade / Sensibilidade / Podendo ser indecisão sentimental ou sexual<br>
+                <strong>Orixá:</strong> Oxum<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Magia / Esoterismo / Astrologia / Cartomancia ou tarô / Qualquer tipo de oráculo / Viagens / Doméstica / Podendo ser serviços gerais<br>
+                <strong>LUA:</strong> Méritos / Coisas ocultas / Fascínio / Lutas por uma amor / Desprendimento / Reconhecimento / Imaginação / Misticismo / Visões / Vidência / Sonhos / Reservado / Sensibilidade / Necessidade interior
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “LUA”:</strong> Ligada ao mundo místico e as coisas ocultas, prenuncia um momento de glória e reconhecimento. Devemos estar atentos à nossa imaginação, conhecer e respeitar nossas reais necessidades interiores. Nas questões amorosas indica forte ligação espiritual e simboliza a influência que recebemos dos planos mais sutis. É o sucesso profissional, o momento de ter o nosso valor reconhecido e considerado pelos demais. Esta carta mostra forte sensibilidade que deve ser bem direcionada, pois usada negativamente pode levar a pessoa a sentir-se deprimida e instável, procurando fugir através do álcool ou de outra maneira não positiva.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Chave</h3>
+                <span class="card-type">Positiva - Referente: Trabalho / Aspectos Materiais</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Enamorados – Número 33 – 3+3=6 – Caminho da decisão/ Amor / Sucesso</li>
+                    <li>8 ouros – Necessidade de treinamento / Nova vocação / Crise material ou profissional</li>
+                </ul>
+                <strong>Amor:</strong> Estar sempre à procura de algo / Solução / Bate e a porta se abrirá<br>
+                <strong>Orixá:</strong> Xangô<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Mercado / Comercialização<br>
+                <strong>CHAVE:</strong> Saída / Solução / Comércio / Chegada de dinheiro (podendo ser muito esperado) / Descobertas / Fundamentos espirituais / Confiar segredos à pessoa errada / Furto por pessoa conhecida / Abertura e fechamento / Iniciação / Discriminação
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CHAVE”:</strong> Essa carta permite abrir as portas que barram nosso crescimento, porém o êxito e o sucesso serão alcançados se prosseguirmos sem medo, confiantes e com muita vontade de atingir os objetivos traçados. O simbolismo da chave está evidentemente, relacionado a seu duplo papel de abertura e fechamento. É, ao mesmo tempo, iniciação e discriminação, o que é indicado, com precisão, pela atribuição das chaves do Reino dos Céus ao apóstolo Pedro – o poder das chaves é o que lhe faculta ligar e desligar, abrir e fechar as portas do Céu.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Peixes</h3>
+                <span class="card-type">Positiva - Referente: Bens Materiais / Financeiro</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Carro – Número 34 – 3+4=7 – Caminho da autoconfiança/ Parceria / Prosperidade</li>
+                    <li>Rei de ouros – Realização / Praticidade / Esforçado / Paciente / Metódico em suas deliberações</li>
+                </ul>
+                <strong>Amor:</strong> Relacionamento próspero / Podendo ser por interesse<br>
+                <strong>Orixá:</strong> Não tem<br>
+                <strong>Signo:</strong> Capricórnio<br>
+                <strong>Atribuição profissional:</strong> Empresário / Liderança / Vendedor / Aplicações<br>
+                <strong>PEIXES:</strong> Riqueza / Sorte / Oportunidade / Lazer ligado ao mar / Intelecto favorecido / Satisfação / Afogamentos / Morte súbita / Inundações / Falência / Falsário / Abundância / Bens materiais / Planos / Algo a realizar / Negócios / Dinheiro
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “PEIXES”:</strong> Indica riqueza e sorte na medida em que estamos atentos e preparados para agarrar as boas oportunidades que surgem em nossa vida. Está relacionado às coisas concretas – bens materiais, negócios e dinheiro. Prenuncia a possibilidade de lucro em novos empreendimentos ou de que o esforço e empenho em nossas atividades profissionais serão recompensados. O peixe é símbolo de vida e fecundidade, em função de sua prodigiosa faculdade de reprodução e do número infinito de suas ovas. Na China o peixe é um símbolo forte. O peixe inspirou rica iconografia entre os artistas cristãos: se ele carrega uma nau sobre o dorso, simboliza o Cristo e sua Igreja; se carregar uma cesta de pão ou ele próprio se encontra sobre o pato, representa a Eucaristia; nas catacumbas romanas, ele é a imagem do Cristo.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Âncora</h3>
+                <span class="card-type">Positiva - Referente: Trabalho</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Justiça – Número 35 – 3+5=8 – Caminho da transformação / Conhecimento / Segurança</li>
+                    <li>9 espadas – Ir em frente com sua experiência / Medo / Ansiedade / Dúvida em relação ao futuro / Insônia / Prostração</li>
+                </ul>
+                <strong>Amor:</strong> Relacionamento seguro / Dificuldades superadas procure trabalhar as suas capacidades<br>
+                <strong>Orixá:</strong> Iemanjá<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>ÂNCORA:</strong> Segurança / Investimento / Lucidez / Controle da situação / Vitória que se aproxima / Preso ao cordão umbilical / Ideia fixa / Acomodação / Naufrágio / Afundar / Suicídio / Medos / Estabilidade material e emocional / Fidelidade / Pessoa que se segura / Barreira / Amarra e imobiliza
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “ÂNCORA”:</strong> As dificuldades podem ser superadas bastando que se aja com autoconfiança. É o momento propício para fazer novos investimentos, concretizar velhos sonhos e arquitetar novos planos. Ressalta a necessidade de termos fé e uma crença que possa nos orientar frente aos desafios da vida e que seja nossa base e esteio. A âncora é um símbolo de firmeza, solidez, tranquilidade e fidelidade – em meio à mobilidade do mar é ela o que fixa, amarra e imobiliza. Simboliza a parte estável de nosso ser, aquela que nos permite conservar a calma e lucidez diante da onda de sensações e sentimentos. Nesse sentido, ela pode ser também uma barreira ou um atraso. A âncora é o emblema da esperança e do apoio que tanto necessitamos quando acontecem as tempestades da vida. Ela simboliza também o conflito entre o sólido e o líquido – a terra e a água.</p>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <div class="card-header">
+                <h3>Cruz</h3>
+                <span class="card-type">Positiva *Negativa</span>
+            </div>
+            <div class="card-details">
+                <strong>SIMBOLOGIA:</strong>
+                <ul>
+                    <li>Eremita – Número 36 – 3+6=9 – Caminho da sabedoria / Fidelidade / Vitória</li>
+                    <li>6 paus – Aprendizado / Arrogância / Limitações / Criatividade / Dia a dia sofrido</li>
+                </ul>
+                <strong>Saúde:</strong> Ótima<br>
+                <strong>Amor:</strong> Equilibrar a razão e a emoção / Aprender lições / Podendo ser amor completo<br>
+                <strong>Orixá:</strong> Almas / Pretos velhos<br>
+                <strong>Signo:</strong> Não tem<br>
+                <strong>Atribuição profissional:</strong> Necessita de outra carta para definir<br>
+                <strong>CRUZ:</strong> Proteção espiritual / Destino / Fim de cama / Descoberta mística / Resistência física / Objetivos / Finalidade / Punição / Falhas / Morte / Complicações / Fraqueza / Energias pesadas / Sacrifício / Vitória / Provação
+            </div>
+            <div class="card-interpretation">
+                <p><strong>INTERPRETAÇÃO DA CARTA “CRUZ”:</strong> Prenuncia os sofrimentos, as provas e as tristezas que surgem em nosso caminho. Mas, ao mesmo tempo, indica que quanto mais complicada for a situação que nos cerca, maior será a vitória se contarmos com a proteção espiritual; não é o momento de esmorecer. Nela se juntam o céu e a terra; nela se confundem o espaço e o tempo, Ela (A Cruz) é o cordão umbilical, jamais cortado, do Cosmo ligado ao Centro Original, símbolo da glória conquistada pelo sacrifício e culminando em uma felicidade estática.</p>
+            </div>
+        </section>
+
+        <h2>Áreas da Vida na Mesa Real</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>Saúde:</strong> Barco</li>
+                <li><strong>Amor:</strong> Carta 24 – O Coração</li>
+                <li><strong>Profissional:</strong> Carta 35 – A Âncora</li>
+                <li><strong>Relacionamento:</strong> Carta 25 – O Anel</li>
+                <li><strong>Conhecimento:</strong> Carta 26 – O Livro</li>
+                <li><strong>Finanças:</strong> Carta 34 – Os Peixes</li>
+            </ul>
+        </div>
+
+        <h2>O Método da Mesa Real</h2>
+        <div class="section-content">
+            <p>O método mais completo e abrangente utilizado no baralho Petit Lenormand é a Mesa Real. Essa abertura nos dá uma visão geral da vida da pessoa que está sendo consultada.</p>
+            <p>Para montar a jogada da Mesa Real é necessário utilizar as 36 lâminas do baralho Lenormand e, por ser uma jogada bem abrangente, as previsões feitas nessa jogada duram em média de 3 a 6 meses. Refazer essa jogada em um tempo inferior a 3 meses não é necessário e, caso o consulente tenha outras questões nesse período, faça outras jogadas menores e mais específicas com a questão levantada.</p>
+            <p>A Mesa Real pode ser montada de várias maneiras, pois cada cartomante adapta as jogadas com a sua intuição e com seus mentores espirituais. As duas formas mais utilizadas são a de 9 colunas por 4 linhas e a de 8 colunas por 4 linhas e na base mais uma linha de 4 cartas, e é essa que iremos demonstrar a seguir.</p>
+        </div>
+
+        <h3>Primeiros Passos na Leitura da Mesa Real</h3>
+        <div class="section-content">
+            <p>Assim que terminar de abrir as cartas, verifique a primeira carta do jogo (Carta “A”), que é a tônica do jogo, a energia que reina no momento na vida do consulente. É a razão das questões do consulente e nos ajuda a ter uma primeira visão da pessoa. As cartas nas outras 3 pontas da Mesa Real (Cartas “B”) apoiam e complementam a tônica do jogo (Carta “A”) e, com uma visão das 4 cartas, já temos uma visão inicial e já podemos “sentir” o resto do jogo.</p>
+            <p>O próximo passo é localizar o consulente na Mesa Real, ele é representado pelo Homem (Carta 28) ou pela Dama (Carta 29). É a partir da localização do consulente na mesa que se começa a leitura. Verifica-se as cartas que rodeiam a carta do consulente e temos a energia, o que o rodeia, como lida com a vida, etc.</p>
+            <p>Quando localizamos o consulente, também localizamos as cartas “chave” do baralho, como as cartas do relacionamento, do amor, da área profissional, etc., e lemos, não só o posicionamento de cada uma em relação ao consulente, como também as outras cartas que as rodeiam, como fizemos com a carta do consulente.</p>
+        </div>
+
+        <h3>Localização da Carta do Consulente na Mesa Real</h3>
+        <div class="section-content">
+            <p>A localização da carta do consulente na Mesa Real também é muito importante, é a localização da carta que nos mostra como ele enfrenta a vida, seu passado, presente e futuro. Veja o significado de algumas localizações:</p>
+            <ul>
+                <li><strong>Posição 1 – Consulente localizado na primeira linha:</strong> Domínio da própria vida, no comando das situações.</li>
+                <li><strong>Posição 2 – Consulente localizado na primeira coluna:</strong> O que importa é o futuro, o que vem pela frente, tem muitos projetos, sonhos e objetivos a conquistar. O passado importa pouco ou quase nada no dia a dia e nas suas metas futuras.</li>
+                <li><strong>Posição 3 – Consulente localizado na última linha:</strong> Literalmente está carregando todo o peso nos ombros. Vida pesada, pensamentos que atormentam, corpo, alma e mente cansados e pesados.</li>
+                <li><strong>Posição 4 – Consulente localizado na última coluna:</strong> Coisas mal resolvidas no passado. Preso em situações que ficaram para trás, arrependimentos e pensamentos nas coisas que já passaram. Grande dificuldade de visualizar o futuro, criar novos objetivos e tecer planos a médio e longo prazo.</li>
+            </ul>
+        </div>
+
+        <h3>Passado, Presente e Futuro na Mesa Real</h3>
+        <div class="section-content">
+            <p>Agora que já localizamos o consulente na mesa, temos as cartas que representam o passado, o presente e o futuro, veja:</p>
+            <ul>
+                <li><strong>Passado:</strong> Esquerda do consulente</li>
+                <li><strong>Presente:</strong> Coluna do consulente</li>
+                <li><strong>Futuro:</strong> Direita do consulente</li>
+            </ul>
+            <p>De maneira mais abrangente temos:</p>
+            <ul>
+                <li><strong>Posição 1:</strong> Presente, pensamentos do consulente</li>
+                <li><strong>Posição 2:</strong> Futuro imediato</li>
+                <li><strong>Posição 3:</strong> Futuro</li>
+                <li><strong>Posição 4:</strong> Futuro distante</li>
+                <li><strong>Posição 5:</strong> Presente, situação atual</li>
+                <li><strong>Posição 6:</strong> Passado distante</li>
+                <li><strong>Posição 7:</strong> Passado</li>
+                <li><strong>Posição 8:</strong> Passado recente</li>
+            </ul>
+        </div>
+
+        <h3>Cruzamento de Cartas para Confirmação</h3>
+        <div class="section-content">
+            <p>Para finalizar o jogo, cruzamos as cartas para termos confirmação do que foi lido e, muitas vezes, uma informação adicional. Para fazer esse cruzamento, temos que levar em consideração a posição de cada carta na Mesa Real.</p>
+            <p>Veja como o jogo deve ser montado e depois desmontado no cruzamento das lâminas, basta seguir a sequência numérica da forma mostrada abaixo.</p>
+            <ul>
+                <li><strong>Jogada 1:</strong> Carta 1 com carta 36 na primeira linha, Carta 2 com carta 35 na segunda linha</li>
+                <li><strong>Jogada 2:</strong> Carta 3 com carta 34 na primeira linha, Carta 4 com carta 33 na segunda linha</li>
+                <li><strong>Jogada 3:</strong> Carta 5 com carta 32 na primeira linha, Carta 6 com carta 31 na segunda linha</li>
+                <li><strong>Jogada 4:</strong> Carta 7 com carta 30 na primeira linha, Carta 8 com carta 29 na segunda linha</li>
+                <li><strong>Jogada 5:</strong> Carta 9 com carta 28 na primeira linha, Carta 10 com carta 27 na segunda linha</li>
+                <li><strong>Jogada 6:</strong> Carta 11 com carta 26 na primeira linha, Carta 12 com carta 25 na segunda linha</li>
+                <li><strong>Jogada 7:</strong> Carta 13 com carta 24 na primeira linha, Carta 14 com carta 23 na segunda linha</li>
+                <li><strong>Jogada 8:</strong> Carta 15 com carta 22 na primeira linha, Carta 16 com carta 21 na segunda linha</li>
+                <li><strong>Jogada 9:</strong> Carta 17 com carta 20 na primeira linha, Carta 18 com carta 29 na segunda linha</li>
+            </ul>
+        </div>
+
+        <h2>Classificação das Cartas</h2>
+        <div class="section-content">
+            <p>As cartas do baralho cigano podem ser divididas em positivas, neutras e negativas, mas essa divisão é relativa, já que toda carta tem seu lado positivo e negativo. Dependendo da jogada, uma carta negativa como a Raposa, pode apenas mostrar uma alteração de comportamento do consulente, tornando-o mais atento e esperto com a situação que o rodeia.</p>
+
+            <h3>Cartas Positivas</h3>
+            <p>Energias positivas, construtivas, esperança e sentimentos superiores</p>
+            <ul>
+                <li>1 – Cavaleiro</li>
+                <li>4 – Casa</li>
+                <li>5 – Árvore</li>
+                <li>9 – Buquê</li>
+                <li>12 – Pássaros</li>
+                <li>13 – Criança</li>
+                <li>16 – Estrela</li>
+                <li>17 – Cegonha</li>
+                <li>18 – Cão</li>
+                <li>19 – Torre</li>
+                <li>21 – Montanha</li>
+                <li>24 – Coração</li>
+                <li>25 – Anel</li>
+                <li>26 – Livro</li>
+                <li>30 – Lírios</li>
+                <li>31 – Sol</li>
+                <li>32 – Lua</li>
+                <li>33 – Chave</li>
+                <li>34 – Peixe</li>
+                <li>35 – Âncora</li>
+                <li>36 – Cruz</li>
+            </ul>
+
+            <h3>Cartas Neutras</h3>
+            <p>Precisa de outras cartas para definir</p>
+            <ul>
+                <li>3 – Navio</li>
+                <li>11 – Chicote</li>
+                <li>20 – Jardim</li>
+                <li>22 – Caminho</li>
+                <li>27 – Carta</li>
+                <li>28 – Homem</li>
+                <li>29 – Mulher</li>
+            </ul>
+
+            <h3>Cartas Negativas</h3>
+            <p>Energias negativas, destruidoras, mudanças radicais com perdas, medo e tristeza</p>
+            <ul>
+                <li>2 – Trevo</li>
+                <li>6 – Nuvem</li>
+                <li>7 – Cobra</li>
+                <li>8 – Caixão</li>
+                <li>10 – Foice</li>
+                <li>14 – Raposa</li>
+                <li>15 – Urso</li>
+                <li>23 – Rato</li>
+            </ul>
+
+            <div class="note">
+                <p>O valor das cartas pode ser usado em perguntas rápidas onde a resposta é SIM ou NÃO. Tira-se 3 cartas e, seguindo a tabela abaixo, chega-se na resposta positiva ou negativa. Se as 3 cartas derem um “talvez”, você pode tirar mais duas cartas para tentar chegar ao SIM ou NÃO. Essa tirada não dá uma interpretação mais ampla, para isso faça uma leitura normal.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resposta Positiva / SIM</th>
+                            <th>Resposta Negativa / NÃO</th>
+                            <th>Resposta Neutra / TALVEZ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3 cartas positivas</td>
+                            <td>3 cartas negativas</td>
+                            <td>3 cartas neutras</td>
+                        </tr>
+                        <tr>
+                            <td>2 cartas positivas + 1 negativa</td>
+                            <td>2 cartas negativas + 1 positiva</td>
+                            <td>2 cartas neutras + 1 positiva</td>
+                        </tr>
+                        <tr>
+                            <td>2 cartas positivas + 1 neutra</td>
+                            <td>2 cartas negativas + 1 neutra</td>
+                            <td>2 cartas neutras + 1 negativa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2>Combinações de Cartas</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>1 Cavaleiro + 3 Navio:</strong> Boas mudanças ou viagem para breve</li>
+                <li><strong>1 Cavaleiro + 11 Chicote + 28 Homem ou 29 Mulher:</strong> Mensageiro espiritual (protetor) influenciando o consulente e que o mesmo precisa canalizar sempre para o bem suas energias</li>
+                <li><strong>1 Cavaleiro + 19 Torre:</strong> Ligação amorosa cármica, pode ser também mensagens espirituais – Agir após refletir muito sobre algo, atitude que depende unicamente de você</li>
+                <li><strong>1 Cavaleiro + 23 Rato:</strong> Falta de coragem</li>
+                <li><strong>1 Cavaleiro + 24 Coração:</strong> Amor a caminho ou paixão arrebatadora</li>
+                <li><strong>1 Cavaleiro + 26 Livros:</strong> Chegada de trabalho ou precisa mais determinação no trabalho</li>
+                <li><strong>1 Cavaleiro + 29 Mulher:</strong> Mulher determinada</li>
+                <li><strong>2 Trevo + 6 Nuvens:</strong> Obstáculos que promovem dificuldades / confusão</li>
+                <li><strong>2 Trevo + 16 Estrela:</strong> Problemas superados</li>
+                <li><strong>2 Trevo + 19 Torre:</strong> Problemas espirituais (se ligar com o seu “eu” superior) – Dificuldade a nível pessoal, íntimo, ou dificuldades com uma instituição</li>
+                <li><strong>2 Trevo + 20 Jardim:</strong> Parentes distantes</li>
+                <li><strong>2 Trevo + 22 Caminhos:</strong> Dificuldades na vida pessoal</li>
+                <li><strong>2 Trevo + 27 Carta:</strong> Dificuldade em se comunicar ou se expressar</li>
+                <li><strong>2 Trevo + 35 Âncora:</strong> Dificuldade nos negócios / trabalho</li>
+                <li><strong>2 Trevo + 36 Cruz:</strong> Provação</li>
+                <li><strong>3 Navio + 4 Casa:</strong> Mudança de residência</li>
+                <li><strong>3 Navio + 4 Casa + 19 Torre:</strong> Mudança de residência para outra cidade</li>
+                <li><strong>3 Navio + 4 Casa + 19 Torre + 36 Cruz:</strong> Mudança de residência para outro país</li>
+                <li><strong>3 Navio + 9 Buquê:</strong> Festas, passeios</li>
+                <li><strong>3 Navio + 10 Foice:</strong> Viagem a ser evitada</li>
+                <li><strong>3 Navio + 12 Corujas + 19 Torre:</strong> Lugar distante</li>
+                <li><strong>3 Navio + 20 Jardim + 28 Homem:</strong> Homem ligado a medicina</li>
+                <li><strong>3 Navio + 26 Livros:</strong> Viagem a trabalho ou chegada de trabalho novo</li>
+                <li><strong>3 Navio + 33 Chave:</strong> Mudanças nos negócios</li>
+                <li><strong>4 Casa + 6 Nuvens:</strong> Desequilíbrio ou confusão no lar</li>
+                <li><strong>4 Casa + 7 Serpente + 30 Lírios:</strong> Traição conjugal</li>
+                <li><strong>4 Casa + 8 Caixão + Carta Positiva:</strong> Transformação na família</li>
+                <li><strong>4 Casa + 8 Caixão + Carta Negativa:</strong> Doença na família</li>
+                <li><strong>4 Casa + 8 Caixão + 30 Lírios:</strong> Separação conjugal</li>
+                <li><strong>4 Casa + 8 Caixão + 21 Montanha + 23 Rato:</strong> Aborrecimento com inventário / herança</li>
+                <li><strong>4 Casa + 9 Buquê:</strong> Felicidade no lar</li>
+                <li><strong>4 Casa + 13 Criança + 18 Cachorro:</strong> Assunto referente a irmãos</li>
+                <li><strong>4 Casa + 13 Criança + 21 Montanha + 23 Rato:</strong> Aborrecimentos com pensão alimentícia</li>
+                <li><strong>4 Casa + 16 Estrela:</strong> Realização na família / Família espiritual ou equilíbrio</li>
+                <li><strong>4 Casa + 19 Torre:</strong> Equilíbrio espiritual / Reequilibrar-se pessoalmente, viver sozinho</li>
+                <li><strong>4 Casa + 20 Jardim:</strong> Parente próximo</li>
+                <li><strong>4 Casa + 21 Montanha + 23 Rato + 30 Lírios:</strong> Aborrecimentos com justiça conjugal</li>
+                <li><strong>4 Casa + 24 Coração:</strong> Equilíbrio emocional</li>
+                <li><strong>4 Casa + 27 Carta:</strong> Notícia importante para a família ou para o consulente</li>
+                <li><strong>4 Casa + 26 Livros + 34 Peixes:</strong> Aquisição de bens materiais. Compra ou aluguel de imóvel. Trabalho profissional feito na residência.</li>
+                <li><strong>4 Casa + 28 Mulher:</strong> Mãe ou mulher de atitudes de equilíbrio</li>
+                <li><strong>4 Casa + 36 Cruz:</strong> Vitória familiar</li>
+                <li><strong>5 Árvore + 19 Torre:</strong> Crescimento interior, espiritual e intelectual / Planos individuais</li>
+                <li><strong>5 Árvore + 23 Rato + 34 Peixes:</strong> Crescimento financeiro por meios ilícitos</li>
+                <li><strong>5 Árvore + 24 Coração:</strong> Crescimento afetivo</li>
+                <li><strong>5 Árvore + 25 Anel + 32 Lua:</strong> Traição, amante</li>
+                <li><strong>5 Árvore + 32 Lua:</strong> Encontro secreto / oculto</li>
+                <li><strong>5 Árvore + 34 Peixes:</strong> Crescimento financeiro</li>
+                <li><strong>6 Nuvem + 7 Serpente:</strong> Homossexualismo</li>
+                <li><strong>6 Nuvem + 7 Serpente + 28 Homem:</strong> Homossexualismo</li>
+                <li><strong>6 Nuvem + 11 Chicote:</strong> Tristeza e sofrimento</li>
+                <li><strong>6 Nuvem + 13 Criança:</strong> Problema com os filhos</li>
+                <li><strong>6 Nuvem + 14 Raposa:</strong> Caráter duvidoso</li>
+                <li><strong>6 Nuvem + 15 Urso:</strong> Medo e insegurança</li>
+                <li><strong>6 Nuvem + 20 Jardim:</strong> Projetos incertos</li>
+                <li><strong>6 Nuvem + 23 Rato:</strong> Problemas e desgastes</li>
+                <li><strong>6 Nuvem + 24 Coração:</strong> Indecisão no amor</li>
+                <li><strong>6 Nuvem + 24 Coração + 19 Torre:</strong> Campo emocional afetado</li>
+                <li><strong>6 Nuvem + 26 Livros:</strong> Problemas profissionais – Confusão mental</li>
+                <li><strong>6 Nuvem + 30 Lírios:</strong> Intranquilidade</li>
+                <li><strong>6 Nuvem + 32 Lua:</strong> Méritos duvidosos – Instabilidade emocional, confusão, incerteza</li>
+                <li><strong>6 Nuvem + 33 Chave:</strong> Soluções de problemas</li>
+                <li><strong>6 Nuvem + 36 Cruz:</strong> Vitória incerta</li>
+                <li><strong>7 Serpente + 10 Foice + 20 Jardim:</strong> Drogas ou vícios</li>
+                <li><strong>7 Serpente + 10 Foice + 27 Carta + Carta Negativa:</strong> Aviso de acidente</li>
+                <li><strong>7 Serpente + 13 Criança + Carta Positiva:</strong> Gravidez</li>
+                <li><strong>7 Serpente + 13 Criança + Carta Negativa:</strong> Malícia</li>
+                <li><strong>7 Serpente + 14 Raposa + Carta Positiva:</strong> Cautela com relação a traição</li>
+                <li><strong>7 Serpente + 14 Raposa + Carta Negativa:</strong> Grande traição</li>
+                <li><strong>7 Serpente + 24 Coração:</strong> Ódio</li>
+                <li><strong>7 Serpente + 36 Cruz:</strong> Perigo</li>
+                <li><strong>8 Caixão + 10 Foice + Carta Positiva:</strong> Mudanças radicais</li>
+                <li><strong>8 Caixão + 10 Foice + Carta Negativa:</strong> Doenças, Perda de emprego</li>
+                <li><strong>8 Caixão + 10 Foice + 23 Rato:</strong> Doença grave</li>
+                <li><strong>8 Caixão + 15 Urso:</strong> Perdas e aborrecimentos – Pessoa passada para trás – Falta de energia vital, falta de paixão pela vida, pessoa sem força</li>
+                <li><strong>8 Caixão + 23 Rato:</strong> Perdas</li>
+                <li><strong>8 Caixão + 23 Rato + Carta Positiva:</strong> Mudança de trabalho</li>
+                <li><strong>8 Caixão + 25 Anel:</strong> Ruptura de união – Separação / Dependendo da pergunta, perda de valores materiais</li>
+                <li><strong>8 Caixão + 30 Lírio:</strong> Perda de tranquilidade ou separação</li>
+                <li><strong>8 Caixão + 31 Sol + Carta Positiva:</strong> Renovação total</li>
+                <li><strong>8 Caixão + 31 Sol + Carta Negativa:</strong> Perda de energia</li>
+                <li><strong>8 Caixão + 35 Âncora + Carta Positiva:</strong> Mudança de trabalho</li>
+                <li><strong>8 Caixão + 35 Âncora + Carta Negativa:</strong> Perda de emprego</li>
+                <li><strong>8 Caixão + 36 Cruz + Carta Positiva:</strong> Transformação vitoriosa</li>
+                <li><strong>8 Caixão + 36 Cruz + Carta Negativa:</strong> Doença grave ou agravamento de doença</li>
+                <li><strong>9 Buquê + 23 Rato:</strong> Surpresas desagradáveis</li>
+                <li><strong>9 Buquê + 24 Coração:</strong> Felicidade no amor</li>
+                <li><strong>9 Buquê + 25 Anel:</strong> Alma gêmea, felicidade e união</li>
+                <li><strong>9 Buquê + 34 Peixes:</strong> Presente de valor</li>
+                <li><strong>10 Foice + 11 Chicote + Carta Positiva:</strong> Magia cortada</li>
+                <li><strong>10 Foice + 11 Chicote + Carta Negativa:</strong> Demandas</li>
+                <li><strong>10 Foice + 18 Cachorro:</strong> Mentira ou fidelidade cortada</li>
+                <li><strong>10 Foice + 23 Ratos:</strong> Doença</li>
+                <li><strong>10 Foice + 25 Anel:</strong> Ruptura de união – Divórcio, término de contrato, sociedade desfeita</li>
+                <li><strong>10 Foice + 27 Carta:</strong> Notícias cortadas ou falta de notícias</li>
+                <li><strong>10 Foice + 28 Homem + 31 Sol:</strong> Homem ligado a medicina</li>
+                <li><strong>10 Foice + 30 Lírios:</strong> Separação ou intranquilidade</li>
+                <li><strong>10 Foice + 32 Lua:</strong> Merecimentos cortados</li>
+                <li><strong>10 Foice + 36 Cruz:</strong> Transformação na vida do consulente</li>
+                <li><strong>10 Foice + Carta Negativa:</strong> Aborrecimentos</li>
+                <li><strong>11 Chicote + 13 Criança:</strong> Filhos contrariados</li>
+                <li><strong>11 Chicote + 19 Torre + Carta Positiva:</strong> Seria o sensitivo, o paranormal, o “mago”</li>
+                <li><strong>11 Chicote + 19 Torre + Carta Negativa:</strong> Aborrecimentos do passado</li>
+                <li><strong>11 Chicote + 24 Coração:</strong> Sentimentos contrariados ou sentimentos feridos</li>
+                <li><strong>11 Chicote + 25 Anel + 30 Lírio:</strong> Casamento contra a vontade</li>
+                <li><strong>11 Chicote + 26 Livros:</strong> Trabalho de magia / Ciências ocultas</li>
+                <li><strong>11 Chicote + 29 Mulher + Carta Positiva:</strong> Mulher ligada a espiritualidade</li>
+                <li><strong>11 Chicote + 29 Mulher + Carta Negativa:</strong> Mulher contrariada</li>
+                <li><strong>11 Chicote + 34 Peixes:</strong> Contrariedades com relação a dinheiro</li>
+                <li><strong>12 Corujas + 14 Raposa:</strong> Alerta em relação a união</li>
+                <li><strong>12 Corujas + 15 Urso:</strong> União que causa inveja, também pode representar ciúmes em uma relação</li>
+                <li><strong>12 Corujas + 17 Cegonha:</strong> Novidades que trazem alegria</li>
+                <li><strong>12 Corujas + 19 Torre:</strong> Alegrias do passado ou muita demora / Conversa sobre coisas íntimas, intimidade entre casal, paciência, espera</li>
+                <li><strong>12 Corujas + 25 Anel:</strong> União feliz ou carinho na união</li>
+                <li><strong>13 Criança + 17 Cegonha:</strong> Gravidez</li>
+                <li><strong>13 Criança + 18 Cachorro:</strong> Amor Sincero</li>
+                <li><strong>13 Criança + 19 Torre:</strong> Forte Intuição</li>
+                <li><strong>13 Criança + 24 Coração:</strong> Sinceridade no amor ou amor de uma pessoa jovem</li>
+                <li><strong>13 Criança + 28 Homem ou 13 Criança + 29 Mulher:</strong> Pessoas imaturas</li>
+                <li><strong>13 Criança + 30 Lírio:</strong> Casamento imaturo – Apressado – Antes da hora</li>
+                <li><strong>13 Criança + 31 Sol:</strong> Gravidez desejada, criança agitada, início promissor</li>
+                <li><strong>13 Criança + 32 Lua:</strong> Gravidez desejada</li>
+                <li><strong>13 Criança + 35 Âncora:</strong> Fase nova e segura</li>
+                <li><strong>14 Raposa + 15 Urso:</strong> Intrigas e falsidades – Pessoa manipuladora, investimentos não confiáveis, chefe desonesto</li>
+                <li><strong>14 Raposa + 17 Cegonha:</strong> Fofocas e intrigas</li>
+                <li><strong>14 Raposa + 19 Torre:</strong> Falta de fé</li>
+                <li><strong>14 Raposa + 21 Montanha + 23 Rato + 34 Peixes:</strong> Estelionatário</li>
+                <li><strong>14 Raposa + 22 Caminhos:</strong> Alerta no caminho da pessoa</li>
+                <li><strong>14 Raposa + 23 Rato + 28 Homem:</strong> Homem de péssimo caráter</li>
+                <li><strong>14 Raposa + 24 Coração + Carta Positiva:</strong> Alerta com relação ao amor</li>
+                <li><strong>14 Raposa + 24 Coração + Carta Negativa:</strong> Falsos galanteios</li>
+                <li><strong>14 Raposa + 26 Livros:</strong> Pessoa Inteligente</li>
+                <li><strong>14 Raposa + 28 Homem ou 14 Raposa + 29 Mulher:</strong> Pessoas Espertas</li>
+                <li><strong>15 Urso + 18 Cachorro:</strong> Falsa Amizade</li>
+                <li><strong>15 Urso + 20 Jardim:</strong> Projetos Ilusórios</li>
+                <li><strong>15 Urso + 23 Rato:</strong> Pessoa mal intencionada</li>
+                <li><strong>15 Urso + 24 Coração + Carta Positiva:</strong> Ciúmes no amor</li>
+                <li><strong>15 Urso + 24 Coração + Carta Negativa:</strong> Falsidade nos sentimentos</li>
+                <li><strong>15 Urso + 24 Coração + 31 Sol:</strong> Ciúmes doentio</li>
+                <li><strong>15 Urso + 29 Mulher + Carta Positiva:</strong> Mulher ciumenta</li>
+                <li><strong>15 Urso + 29 Mulher + Carta Negativa:</strong> Mulher falsa</li>
+                <li><strong>16 Estrela + 19 Torre:</strong> Mentores espirituais ou linha cigana – Mediunidade</li>
+                <li><strong>16 Estrela + 20 Jardim:</strong> Realização de projetos</li>
+                <li><strong>16 Estrela + 22 Caminhos:</strong> Haverá realizações no caminho do consulente, proteção espiritual ou tarefas espirituais (missão)</li>
+                <li><strong>16 Estrela + 26 Livros + 28 Homem ou 29 Mulher:</strong> Atividade artística</li>
+                <li><strong>16 Estrela + 28 Homem:</strong> Mentores espirituais ou linha cigana</li>
+                <li><strong>16 Estrela + 29 Mulher:</strong> Mentores espirituais ou linha cigana</li>
+                <li><strong>16 Estrela + 31 Sol:</strong> Mentores espirituais ou linha cigana / Sucesso e prestígio na área da matéria – Sonhos realizados, fama, boa sorte</li>
+                <li><strong>16 Estrela + 32 Lua:</strong> Mentores espirituais ou linha cigana – Sucesso, fama</li>
+                <li><strong>16 Estrela + 33 Chave:</strong> Êxito nos negócios</li>
+                <li><strong>17 Cegonha + 19 Torre:</strong> Novidades referentes ao passado – Mudanças em nosso interior</li>
+                <li><strong>17 Cegonha + 20 Jardim:</strong> Novo Projeto</li>
+                <li><strong>17 Cegonha + 25 Anel:</strong> Novidades no setor afetivo</li>
+                <li><strong>17 Cegonha + 26 Livro:</strong> Novidades ou mudança no trabalho</li>
+                <li><strong>17 Cegonha + 31 Sol:</strong> Gravidez</li>
+                <li><strong>18 Cachorro + 19 Torre:</strong> Amigo espiritual ou amizade do passado</li>
+                <li><strong>18 Cachorro + 20 Jardim + 31 Sol:</strong> Assuntos referentes a parentes</li>
+                <li><strong>18 Cachorro + 21 Montanha:</strong> Amizades equilibradas – Amizade justa</li>
+                <li><strong>18 Cachorro + 25 Anel:</strong> Sociedade entre amigos ou namoro entre amigos – Ajuda de amigos – Casamento perfeito, feito de confiança, fidelidade, companheirismo e amizade. Um amor que não é só carnal, mas também espiritual</li>
+                <li><strong>18 Cachorro + 31 Sol:</strong> Grande amizade</li>
+                <li><strong>19 Torre + 20 Jardim:</strong> Parente distante</li>
+                <li><strong>19 Torre + 21 Montanha:</strong> Equilíbrio espiritual, justiça demorada</li>
+                <li><strong>19 Torre + 24 Coração:</strong> Amor do passado</li>
+                <li><strong>19 Torre + 26 Livros:</strong> Revelação do passado, estudos e trabalhos relacionados a espiritualidade</li>
+                <li><strong>19 Torre + 26 Livros + 32 Lua + 33 Chave:</strong> Segredos íntimos revelados</li>
+                <li><strong>19 Torre + 26 Livros + Carta Negativa:</strong> Intimidades reveladas</li>
+                <li><strong>19 Torre + 27 Carta:</strong> Avisos espirituais ou notícias vindo de longe</li>
+                <li><strong>19 Torre + 30 Lírios:</strong> Paz interior</li>
+                <li><strong>20 Jardim + 24 Coração:</strong> Novo amor</li>
+                <li><strong>20 Jardim + 25 Anel:</strong> Representa nova sociedade</li>
+                <li><strong>20 Jardim + 33 Chave:</strong> Cura através de medicina alternativa</li>
+                <li><strong>20 Jardim + 36 Cruz:</strong> Realização de projetos</li>
+                <li><strong>21 Montanha + 22 Caminhos:</strong> Justiça no caminho da pessoa</li>
+                <li><strong>21 Montanha + 23 Rato:</strong> Aborrecimentos com justiça</li>
+                <li><strong>21 Montanha + 23 Rato + 26 Livros:</strong> Aborrecimentos com justiça trabalhista</li>
+                <li><strong>21 Montanha + 26 Livros:</strong> Documentos em geral</li>
+                <li><strong>21 Montanha + 26 Livros + Homem:</strong> Homem ligado a justiça</li>
+                <li><strong>22 Caminhos + 23 Ratos:</strong> Desgastes, aborrecimentos</li>
+                <li><strong>22 Caminhos + 23 Ratos + 34 Peixes:</strong> Perda de dinheiro</li>
+                <li><strong>22 Caminhos + 24 Coração:</strong> Harmonia no caminho ou amor novo – Várias formas de amar; amor de pai, de mãe, de filha, de irmão</li>
+                <li><strong>22 Caminhos + 26 Livros:</strong> Revelação ou trabalho no caminho</li>
+                <li><strong>22 Caminhos + 27 Carta:</strong> Notícias importantes</li>
+                <li><strong>22 Caminhos + 31 Sol:</strong> Grande acontecimento / Saúde boa</li>
+                <li><strong>22 Caminhos + 33 Chave:</strong> Solução ou abertura nos caminhos – Aberto ao público, algo que se tornou público – Decisão importante, várias meios de solucionar algo</li>
+                <li><strong>22 Caminhos + 34 Peixes:</strong> Entrada de dinheiro</li>
+                <li><strong>23 Rato + 24 Coração:</strong> Desgaste sentimental</li>
+                <li><strong>23 Rato + 26 Livros:</strong> Trabalho desgastante</li>
+                <li><strong>23 Rato + 31 Sol:</strong> Grande aborrecimento – Perda de energia, anemia, fraqueza, doença</li>
+                <li><strong>23 Rato + 32 Lua + 34 Peixes:</strong> Dinheiro ilícito</li>
+                <li><strong>23 Rato + 34 Peixes:</strong> Danos materiais</li>
+                <li><strong>23 Rato + 35 Âncora:</strong> Trabalho desonesto</li>
+                <li><strong>24 Coração + 27 Carta:</strong> Aviso a respeito de sentimentos</li>
+                <li><strong>24 Coração + 30 Lírio:</strong> Forte paixão ou relacionamento sério. Relacionamento firme ou início de namoro</li>
+                <li><strong>24 Coração + 36 Cruz:</strong> Realização no amor</li>
+                <li><strong>25 Anel + 26 Livros:</strong> Sociedade profissional</li>
+                <li><strong>25 Anel + 30 Lírio:</strong> Relacionamento sério</li>
+                <li><strong>25 Anel + 31 Sol:</strong> Grande entrada de valores</li>
+                <li><strong>25 Anel + 35 Âncora:</strong> Sociedade profissional</li>
+                <li><strong>26 Livro + 27 Carta:</strong> Notícias / Avisos</li>
+                <li><strong>26 Livro + 28 Homem:</strong> Chefe ou superior</li>
+                <li><strong>26 Livro + 29 Mulher:</strong> Mulher reveladora</li>
+                <li><strong>26 Livro + 32 Lua:</strong> Méritos e promoção profissional – segredo, algo oculto</li>
+                <li><strong>26 Livro + 32 Lua + 33 Chave:</strong> Segredos íntimos revelados – Revelação de segredo muito escondido</li>
+                <li><strong>26 Livro + 35 Âncora:</strong> Trabalho seguro</li>
+                <li><strong>27 Carta + 31 Sol:</strong> Grandes notícias</li>
+                <li><strong>27 Carta + 32 Lua:</strong> Mensagens anônimas</li>
+                <li><strong>28 Homem + 31 Sol:</strong> Homem saudável e progressista</li>
+                <li><strong>28 Homem + 34 Peixes:</strong> Homem ligado a negócios – Empresário</li>
+                <li><strong>29 Dama + 34 Peixes:</strong> Mulher materialista ou ligada aos negócios</li>
+                <li><strong>30 Lírios + 31 Sol:</strong> Paz que traz progresso e crescimento no casamento ou casamento de filhos</li>
+                <li><strong>31 Sol + 33 Chave:</strong> Abertura para progresso ou progresso nos negócios</li>
+                <li><strong>31 Sol + 34 Peixes:</strong> Grande entrada de dinheiro</li>
+                <li><strong>32 Lua + 33 Chave:</strong> Solução com méritos</li>
+                <li><strong>32 Lua + 34 Peixes:</strong> Méritos ou êxito nos negócios – Reconhecimento financeiro, negócios criativos</li>
+                <li><strong>32 Lua + 36 Cruz:</strong> Triunfo</li>
+                <li><strong>33 Chave + 34 Peixes:</strong> Riqueza e prosperidade na vida</li>
+                <li><strong>33 Chave + 35 Âncora:</strong> Soluções seguras, sucesso garantido</li>
+                <li><strong>33 Chave + 36 Cruz:</strong> Soluções que traz vitórias</li>
+                <li><strong>34 Peixes + 36 Cruz:</strong> Negócio difícil</li>
+            </ul>
+            <div class="note">
+                <p><strong>Atenção:</strong> Muitas cartas negativas perto de duas positivas deixam a situação mais negativa e complicada. As combinações apresentadas aqui servem apenas como material didático, a leitura tem que se basear, e muito, na intuição de quem as está abrindo.</p>
+            </div>
+        </div>
+
+        <h2>Consagração das Cartas</h2>
+        <div class="ritual-section">
+            <p>Quando compramos o baralho, temos que fazer a CONSAGRAÇÃO DAS CARTAS. O ritual de consagração, embora não seja obrigatório, pois depende das crenças de cada um, tem o objetivo de ligar o baralho a si, colocando nele a sua energia, bem como as vibrações do Universo. Deste modo, as cartas de simples pedaços de papel passam a se transformar em símbolos que o conduzirão à vida oculta (inconsciente) do consulente.</p>
+            <p>Começa a consagração apresentando as cartas aos quatro elementos da natureza, colocados em cima da mesa ou noutro local, no compartimento onde pretende deitar as cartas:</p>
+            <ul>
+                <li><strong>Fogo:</strong> acendendo uma vela da cor do seu agrado;</li>
+                <li><strong>Ar:</strong> colocando um incenso da sua preferência a queimar;</li>
+                <li><strong>Terra:</strong> cristais e frutas (estas últimas se quiser);</li>
+                <li><strong>Água:</strong> numa taça ou copo.</li>
+            </ul>
+            <p>Olhando para as cartas, peça com segurança para que sejam limpas de todas as energias negativas e que possa com elas fazer previsões corretas, no sentido de orientar quem lhe procurar (ou faça o pedido que achar conveniente).</p>
+            <p>Para finalizar, passe as lâminas, uma a uma, no incenso, sempre com bons pensamentos e boa energia. Quando terminar, guarde o baralho num saco feito por si, num lenço ou onde achar melhor. Evite envolver em panos pretos e cinzentos, pois o negro absorve energia negativa que pode atacar o seu baralho.</p>
+            <p>O resto do incenso e vela deverá, após tê-los apagado, jogar fora ou deixar num jardim perto da sua casa. A água deve ser jogada fora. Os cristais estão imantados com energia e deverão ser colocados na mesa, onde vai deitar as cartas, assim como o punhal. As frutas, ofereça à sua família ou a alguém que está a precisar ou deixadas num jardim.</p>
+            <p>Use sua intuição e faça seu próprio ritual para que suas cartas sejam abençoadas com sua energia e a do universo.</p>
+        </div>
+
+        <h2>Proteção para o Jogo</h2>
+        <div class="ritual-section">
+            <p>Para iniciar cada jogo, como sua energia vai se apresentar a outras energias desconhecidas, é aconselhável se proteger para que não receba interferências na sua vida pessoal.</p>
+            <h3>Dicas:</h3>
+            <ol>
+                <li>Erga seu punhal com a mão direita, bem diante de você, e movimente-o em forma de X (da parte esquerda para o ponto mais baixo na direita, e vice-versa). Este gesto deve depois ser repetido em direção aos quatro pontos cardiais; nessa altura invoca os seus guias espirituais, pedindo-lhes que o defendam sempre, afastando de si a perda, a doença, a dor, a escuridão, a maldade e a inveja dos outros.</li>
+                <li>Você deve, tanto antes quanto depois do jogo das cartas ciganas, fazer uma oração pedindo luz, sabedoria e discernimento (pode ser ao seu anjo guardião ou alguma outra oração de sua preferência). Lembre-se também de invocar a força dos 4 elementos da natureza (terra, água, fogo e ar), pois segundo a tradição cigana eles trabalham contra a negatividade e a favor da positividade. Lembrou-se de acender a vela? Pois bem, os 4 elementos da natureza estão representados nela da seguinte forma: a água é a cera, a terra é o pavio, o fogo é a chama da vela e o ar o oxigênio que faz o fogo queimar e mantém a vela acesa.</li>
+            </ol>
+        </div>
+
+        <h2>Orientações Gerais para o Tarot Cigano</h2>
+        <div class="ritual-section">
+            <p>Primeiramente, o Tarot Cigano deve ser sempre muito bem guardado, de preferência envolto em um pano vermelho e longe do alcance de outras pessoas, pois é um item bastante pessoal. Em hipótese nenhuma o Tarot Cigano deve ser usado para jogos de azar.</p>
+            <p>Quando for jogar as cartas ciganas, procure isolamento para que você tenha tranquilidade e possa se concentrar na interpretação das mensagens que as cartas querem passar. Estenda uma toalha branca sobre a mesa onde for feita a leitura, acenda uma vela e um incenso para purificar o ambiente e, se quiser, coloque uma música calma e relaxante, que inspire paz de espírito.</p>
+        </div>
+
+        <h2>A Filosofia do Oráculo</h2>
+        <div class="section-content">
+            <p>Sabemos que não podemos adivinhar o futuro ou modificar atitudes das pessoas que nos rodeiam, mas podemos alterar a nossa postura pessoal diante do universo exterior e dessa forma tudo o que vem de fora acaba por ser transformado por nós. As cartas não devem ser analisadas como uma declaração de um destino inevitável, pois todo o ser humano possui livre-arbítrio. Contudo, elas retratam sempre como o nosso futuro se desenrola se continuarmos a agir de uma determinada forma. As cartas são meros espelhos das emoções, medos, complexos e sentimentos que guardamos dentro de nós. Ao fazermos uma consulta, estamos a contemplar o reflexo da nossa alma…</p>
+            <p class="greeting">Optchá !!!!</p>
+
+            <div class="note">
+                <p><strong>Oráculo não "resolve" problemas:</strong> Esse instrumento visa apenas a ORIENTAÇÃO e não "desvendar o futuro". O Baralho Cigano (afirmo aqui aquilo em que acredito!) Meu trabalho aponta caminhos para que o cliente alcance o que ele considera ser seus desejos.</p>
+                <p>Tendo em mãos as informações concedidas, precisa saber como usá-las em sua vida diária, não há nada de transcendental nisso. É ser prático.</p>
+                <p>O bom profissional comenta em seu trabalho sobre "livre arbítrio", "escolha", "ações imediatas".</p>
+                <p>O bom consultor não deseja que seu consulente se APEGUE a ele como se fosse um guru. Seria uma bela carga em cima das próprias costas imaginar que alguém entregou seu "destino" em minhas mãos, verdade?</p>
+                <p>Portanto, pulverize essa imagem de que, quem lê cartas tem o dom supremo da verdade absoluta.</p>
+                <p>Se acha que o oraculista vai resolver seus problemas, sem que você mesmo se mova para atingir seus propósitos, se ilude.</p>
+                <p>Mova-se na direção da sua auto-evolução em todos os sentidos: emocional, espiritual, material, acreditando que parte apenas de você mesmo os resultados de sua vida!</p>
+                <p>Enfim, a escolha é sua!</p>
+            </div>
+        </div>
+
+        <div class="final-message">
+            <p class="quote">"Thie aves thiailô lom, manrô tai sunakai"</p>
+            <p>Que você seja abençoada com o sal, com o pão e com o ouro.</p>
+            <p>(Saudação Cigana)</p>
+            <p>O amanhã é apenas um deslumbre do agora.</p>
+            <p class="greeting">Seja feliz com suas escolhas!</p>
+        </div>
+    </div>
+</body>
+</html>
